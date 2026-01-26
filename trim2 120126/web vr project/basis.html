@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Awareness</title>
+  <link rel="stylesheet" href="basis.css">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 id="homepage_title" class="homepage-animatable">
+      <div>
+        <span>C</span><span>l</span><span>i</span><span>m</span><span>a</span><span>t</span><span>e</span>
+      </div>
+      <div>
+        <span>i</span><span>s</span><span>n</span><span>’</span><span>t</span>
+        <span style="width:0.5em"></span> <!-- SPATIE -->
+        <span>w</span><span>a</span><span>i</span><span>t</span><span>i</span><span>n</span><span>g</span>
+      </div>
+    </h1>
+    <p>Neither should we.</p>
+  </section>
+
+  <!-- SCROLL SPACE -->
+  <section class="spacer"></section>
+
+  <!-- DIAGONAL SCROLL TAPE -->
+  <section class="diagonal-section">
+    <div class="diagonal-track" id="diagonalText">
+      <span>CO₂ IS STIJGEND</span>
+      <span>DE AARDE WARMER</span>
+      <span>TIJD LOOPT</span>
+      <span>ACTIE NU</span>
+      <span>CO₂ IS STIJGEND</span>
+      <span>DE AARDE WARMER</span>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="content">
+    <h2>Dit is geen toekomstprobleem</h2>
+    <p>
+      Broeikasgassen beïnvloeden nu al weer, voedsel en leefbaarheid.
+      Minder praten. Meer doen.
+    </p>
+  </section>
+
+<script>
+  // HERO LETTERS: random hover color + stagger
+  const letters = document.querySelectorAll('.homepage-animatable span');
+  const colors = ['#3b82f6','#22c55e','#f97316','#a855f7','#ef4444'];
+
+  letters.forEach((span,i)=>{
+    span.style.setProperty('--i', i);
+    const randomColor = colors[Math.floor(Math.random()*colors.length)];
+    span.style.setProperty('--hover-color', randomColor);
+  });
+
+  // DIAGONAL TAPE: scroll van links naar rechts
+    const track = document.getElementById("diagonalText");
+    const startOffset = -50; // start 50px naar links
+
+    window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const position = startOffset + scrollY * 1.5; // scroll naar rechts
+    track.style.transform = `rotate(-10deg) translateX(${position}px)`;
+});
+
+</script>
+
+</body>
+</html>
+
